@@ -13,5 +13,5 @@ gem "jquery-rails"
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-# To use debugger
+# To use binding.pry
 gem 'pry'
