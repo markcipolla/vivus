@@ -1,4 +1,4 @@
-= Vivus Styleguide
+# Vivus Styleguide
 
 ## Idea
 
