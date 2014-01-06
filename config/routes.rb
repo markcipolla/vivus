@@ -1,5 +1,5 @@
 Vivus::Engine.routes.draw do
   mount Vivus::Engine, at: "vivus"
-
-  root :to => "styles#index"
+  match "/*path", to: "styles#show"
+  root to: "styles#index"
 end

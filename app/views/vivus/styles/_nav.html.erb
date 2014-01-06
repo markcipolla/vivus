@@ -1,0 +1,5 @@
+<ul>
+  <% @stylesheets.each do |stylesheet| %>
+    <li><%= link_to stylesheet.display_path, "/vivus/#{stylesheet.path}" %></li>
+  <% end %>
+</ul>

@@ -7,6 +7,10 @@ class Stylesheet
     @path
   end
 
+  def display_path
+    @path.gsub("app/assets/stylesheets/", "")
+  end
+
   def body
     File.read(@path)
   end

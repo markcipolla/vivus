@@ -1,14 +1,17 @@
 # Controller for dsiplaying the documentation for the styles
 class Vivus::StylesController < Vivus::ApplicationController
+  before_filter :find_stylesheets
+
   def index
-    find_stylesheets
+  end
+
+  def show
+    @stylesheet = Stylesheet.new(path: "#{params[:path]}.#{params[:format]}")
   end
 
   private
 
   def find_stylesheets
-
-
     # root_assets_path = Rails.root + "app/assets/stylesheets"
     # extensions = ['**/*.css', '**/*.sass', '**/*.scss', '**/*.less']
 
@@ -21,7 +24,7 @@ class Vivus::StylesController < Vivus::ApplicationController
     files = []
     extensions = ['**/*.css', '**/*.sass', '**/*.scss', '**/*.less']
     extensions.each do |extension|
-      Dir.glob("app/assets/#{extension}") do |path|
+      Dir.glob("app/assets/stylesheets/#{extension}") do |path|
         files << path if is_a_file?(path)
       end
     end
