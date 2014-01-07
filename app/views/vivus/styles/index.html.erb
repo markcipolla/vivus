@@ -1,7 +1,16 @@
-<%= render partial: "nav" %>
+<%#= render partial: "nav" %>
 
 <h1>Vivus</h1>
 
 <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
 
 <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+<% @stylesheets.each do |stylesheet| %>
+  <% stylesheet.parse.each do |block| %>
+    <em>From <%= block.source %></em>
+    <%= block.comments.html_safe %>
+
+    <pre><%= block.html.html_safe %></pre>
+  <% end %>
+<% end %>

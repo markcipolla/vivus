@@ -7,11 +7,15 @@ class Block
     @html = html
   end
 
+  def source
+    @source
+  end
+
   def comments
     RDiscount.new(@comment.join, :smart, :filter_html).to_html
   end
 
   def html
-    RDiscount.new(@html.join, :smart, :filter_html).to_html
+    RDiscount.new(@html.join).to_html
   end
 end
