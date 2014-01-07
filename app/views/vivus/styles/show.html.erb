@@ -1,3 +1,8 @@
 <%= render partial: "nav" %>
 
-<pre><%= @stylesheet.body %></pre>
+
+<% @stylesheet.parse.each do |block| %>
+  <%= block.comments.html_safe %>
+
+  <pre><%= block.html.html_safe %></pre>
+<% end %>
