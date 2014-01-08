@@ -51,16 +51,15 @@ class Stylesheet
         # No longer in a comment
         if @in_a_comment
           @in_a_comment = false
-          # if @source != nil && @comment != [] && @html != []
+          if @source != nil && @comment != [] && @html != []
             @blocks << Block.new(@source, @comment.delete_if(&:empty?), @html.delete_if(&:empty?))
 
             @comment = []
             @html = []
-          # end
+          end
         end
       end
     end
-
     @blocks
   end
 

@@ -1,10 +1,20 @@
 #vivus-navigation {
   float: left;
-  width: 350px;
+  max-width: 320px;
+  width: 100%;
+  margin-right: 40px;
+
+  max-height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
 
   ul {
-    padding: 0;
+    padding: 40px;
     margin: 0;
-    list-style: none;
+
+    li {
+      list-style: none;
+    }
   }
 }
