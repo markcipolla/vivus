@@ -9,10 +9,10 @@
   font-style: normal;
 }
 
+body#vivus {
+  margin: 0;
+  padding: 0;
 
-
-#vivus {
   @import "base/all";
-  @import "layout/all";
   @import "module/all";
 }
