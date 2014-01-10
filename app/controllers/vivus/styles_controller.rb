@@ -5,9 +5,9 @@ class Vivus::StylesController < Vivus::ApplicationController
   def index
   end
 
-  def show
-    @stylesheet = Stylesheet.new(path: "#{params[:path]}.#{params[:format]}")
-  end
+  # def show
+  #   @stylesheet = Stylesheet.new(path: "#{params[:path]}.#{params[:format]}")
+  # end
 
   private
 
