@@ -28,6 +28,8 @@
         code {
           font-size: 14px;
           color: #660000;
+          font-family: droid_sans_monoregular, mono, sans;
+          @import 'syntax-highlighting';
         }
       }
 
