@@ -56,6 +56,7 @@ module Dummy
     config.assets.version = '1.0'
 
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.assets.append_path 'vendor/assets/'
   end
 end
 

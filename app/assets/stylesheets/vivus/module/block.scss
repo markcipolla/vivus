@@ -2,14 +2,58 @@
   margin-left: 360px;
   padding: 40px 40px 40px 0;
 
-  ul.sections {
+  ul.vivus-sections {
     margin: 0;
     padding: 0;
 
-    li {
+    & > li {
       list-style: none;
       border-bottom: 1px solid #eee;
       margin-bottom: 40px;
+
+      .vivus-source,  .vivus-documentation, .vivus-title {
+        font-family: 'latin_modern_mono';
+      }
+
+      .vivus-source {
+        margin: 0 0 20px 0;
+        font-size: 12px;
+        font-style: italic;
+      }
+
+      .vivus-documentation {
+        margin: 0 0 40px 0;
+        font-size: 15px;
+
+        code {
+          font-size: 14px;
+          color: #660000;
+        }
+      }
+
+      .vivus-example {
+        margin: 0 0 40px 0;
+        font-size: 15px;
+      }
+
+      .vivus-code {
+        .vivus-title {
+          font-size: 15px;
+          text-transform: none;
+        }
+
+        & > pre {
+          font-family: droid_sans_monoregular, mono, sans;
+          word-wrap: break-word;
+          margin: 0px;
+          padding: 10px;
+          color: #657b83; /* base00 */
+          font-size: 14px;
+          margin-bottom: 20px;
+
+          @import 'syntax-highlighting';
+        }
+      }
     }
   }
 }

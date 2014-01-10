@@ -9,10 +9,20 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'droid_sans_monoregular';
+    src: url('/assets/DroidSansMono-webfont.eot');
+    src: url('/assets/DroidSansMono-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/DroidSansMono-webfont.woff') format('woff'),
+         url('/assets/DroidSansMono-webfont.ttf') format('truetype'),
+         url('/assets/DroidSansMono-webfont.svg#droid_sans_monoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body#vivus {
   margin: 0;
   padding: 0;
 
-  @import "base/all";
   @import "module/all";
 }

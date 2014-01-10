@@ -1,26 +1,33 @@
 <%#= render partial: "nav" %>
 <div id="vivus-navigation">
   <ul>
-    <li>herher</li>
-    <li>herher</li>
-    <li>herher</li>
-    <li>herher</li>
-    <li>herher</li>
-    <li>herher</li>
-    <li>herher</li>
+
   </ul>
 </div>
 <div id="vivus-body">
-  <ul class="sections">
+  <ul class="vivus-sections">
     <% @stylesheets.each do |stylesheet| %>
       <% stylesheet.parse.each do |block| %>
         <li>
-          <em>From <%= block.source %></em>
-          <%= block.comments.html_safe %>
-          <pre><%= block.html.html_safe %></pre>
+          <section class="vivus-documentation">
+            <%#= send_file("#{Rails.root.to_s}/#{block.source}" ,:disposition => 'inline') %>
+            <h3 class="vivus-source"><%= link_to block.source, "#{root_path}/#{block.source}" %></h3>
+            <%= block.comments.html_safe %>
+          </section>
+
+          <section class="vivus-example">
+            <h3 class="vivus-title">Example</h3>
+            <%= block.html.html_safe %>
+          </section>
+
+          <section class="vivus-code">
+            <h3 class="vivus-title">Code</h3>
+            <pre><%= block.html %></pre>
+          </section>
         </li>
       <% end %>
     <% end %>
   </ul>
-
 </div>
+
+

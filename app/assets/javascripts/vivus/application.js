@@ -11,4 +11,21 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require highlight.pack
 //= require_tree .
+
+$(document).ready(function() {
+    $('pre').each(function(i, el) {
+        hljs.highlightBlock(el);
+    });
+
+    $('code').each(function(i, el) {
+        hljs.highlightBlock(el);
+    });
+
+    $('.vivus-documentation .vivus-source + h2').each(function(i, el) {
+
+        $('#vivus-navigation ul').append("<li><a href='#" + i + "'>" + $(el).text() + "</a></li>");
+        $(el).append("<a name='" + i + "'>" + $(el).text() + "</p>");
+    })
+});
