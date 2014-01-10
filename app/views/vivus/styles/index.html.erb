@@ -27,6 +27,44 @@
         </li>
       <% end %>
     <% end %>
+
+    <% if @stylesheets.collect{|s| s.parse}.flatten.blank? %>
+      <li>
+        <h2>Let's begin!</h2>
+        <p>Above each block of code in your CSS, start documenting your styleguide by writing comments like below.</p>
+        <p>The important bits are:</p>
+        <ul>
+          <li><code>// Vivus</code> indicates this is a Vivus comment, and will be parsed accordingly.</li>
+          <li><code>// HTML Example</code> marks the start and end of the HTML example code that uses the css.</li>
+        </ul>
+        <br />
+        <pre>
+// Vivus
+//
+// Section title, as in "Buttons" or "Tables"
+// ==========================================
+//
+// Write some documentation explaining the use / concept of the CSS
+// you've got below. This bit will be markdown rendered.
+//
+// - You can use three backticks (`) to indicate a code block
+// - Code blocks will be syntax highlighted
+//
+// When you've documented it nicely, use the HTML Example markers to
+// indicate a block of HTML that uses the CSS.
+// Keeps your documentation right near the CSS.
+//
+// So, if you update / refactor the CSS, update the HTML example if
+// need be.
+//
+// HTML Example
+// &lt;div class="example"&gt;
+//   &lt;a href="#" class="button"&gt;Some text&lt;a&gt;
+// &lt;/div&gt;
+// HTML Example
+        </pre>
+      </li>
+    <% end %>
   </ul>
 </div>
 
