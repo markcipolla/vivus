@@ -26,6 +26,6 @@ $(document).ready(function() {
     $('.vivus-documentation .vivus-source + h2').each(function(i, el) {
 
         $('#vivus-navigation ul').append("<li><a href='#" + i + "'>" + $(el).text() + "</a></li>");
-        $(el).append("<a name='" + i + "'>" + $(el).text() + "</p>");
+        $(el).prepend("<a name='" + i + "'></a>");
     })
 });
