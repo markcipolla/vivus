@@ -12,17 +12,8 @@ class Vivus::StylesController < Vivus::ApplicationController
   private
 
   def find_stylesheets
-    # root_assets_path = Rails.root + "app/assets/stylesheets"
-    # extensions = ['**/*.css', '**/*.sass', '**/*.scss', '**/*.less']
-
-    # Rails.application.assets.each_file do |pathname|
-    #   pathname.dirname.to_s =~ /root_assets_path/
-    #   files << pathname
-    #   # pathname.include? extensions
-    # end
-
     files = []
-    extensions = ['**/*.css', '**/*.sass', '**/*.scss', '**/*.less']
+    extensions = ['**/*.sass', '**/*.scss']
     extensions.each do |extension|
       Dir.glob("app/assets/stylesheets/#{extension}") do |path|
         files << path if is_a_file?(path)
