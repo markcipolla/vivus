@@ -9,7 +9,7 @@ By analysing the comments in your [SASS](http://sass-lang.com/) files, and by ad
 To get running, checkout the branch (it's still waaaay alpha) and add this to your Gemfile:
 
 ```
-gem 'vivus', path: "~/PATH/TO/vivus"
+gem 'vivus'
 ```
 
 Add this to your routes.rb
