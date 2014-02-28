@@ -12,18 +12,12 @@ class Stylesheet
     matches.each do |match|
       case match[1]
       when "Description"
-         documentation << Description.new(match[2])
+         documentation << Description.new(match)
       when "Example"
-         documentation << Example.new(match[2])
-      else
-        unsupported
+         documentation << Example.new(match)
       end
-
-
     end
 
     documentation
   end
-
-
 end

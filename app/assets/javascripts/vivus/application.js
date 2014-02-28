@@ -23,8 +23,7 @@ $(document).ready(function() {
         hljs.highlightBlock(el);
     });
 
-    $('.vivus-documentation .vivus-source + h2').each(function(i, el) {
-
+    $('.vivus-documentation h1').each(function(i, el) {
         $('#vivus-navigation ul').append("<li><a href='#" + i + "'>" + $(el).text() + "</a></li>");
         $(el).prepend("<a name='" + i + "'></a>");
     })

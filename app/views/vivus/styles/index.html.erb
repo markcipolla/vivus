@@ -8,7 +8,7 @@
   <ul class="vivus-sections">
     <% @stylesheets.each do |stylesheet| %>
       <% stylesheet.parse.each do |block| %>
-        <%= render partial: "shared/#{block.class.to_s.tableize}", locals: {data: block.render} %>
+        <%= render partial: "shared/#{block.partial}", locals: {data: block.render} %>
       <% end %>
     <% end %>
 

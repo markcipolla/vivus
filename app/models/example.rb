@@ -1,17 +1,25 @@
 require 'rdiscount'
 
 class Example
-  def initialize (comment)
-    @comment = comment
+  def initialize (match)
+    @block = match[2]
+  end
+
+  def partial
+    "example"
   end
 
   def render
-    RDiscount.new(strip_comment_marker(@comment)).to_html
+   strip_block_marker(@block)
+  end
+
+  def code
+    match[2]
   end
 
   private
 
-  def strip_comment_marker(comment)
-    comment.gsub("\n * ", "\n").gsub("\n *", "\n").strip
+  def strip_block_marker(block)
+    block.gsub(/\n\s*\*\s*/m, "\n").strip
   end
 end
