@@ -11,13 +11,13 @@
       border-bottom: 1px solid #eee;
       margin-bottom: 40px;
 
-      .vivus-source {
+      &.vivus-source {
         margin: 0 0 20px 0;
         font-size: 12px;
         font-style: italic;
       }
 
-      .vivus-documentation {
+      &.vivus-documentation {
         margin: 0 0 40px 0;
         font-size: 15px;
 
@@ -29,33 +29,25 @@
         }
       }
 
-      .vivus-code {
-
-      }
-
-      .vivus-example {
+      &.vivus-example {
         margin: 0 0 40px 0;
         font-size: 15px;
       }
 
-      // .vivus-code {
-      //   .vivus-title {
-      //     font-size: 15px;
-      //     text-transform: none;
-      //   }
+      &.vivus-code {
 
-      //   & > pre {
-      //     font-family: droid_sans_monoregular, mono, sans;
-      //     word-wrap: break-word;
-      //     margin: 0px;
-      //     padding: 10px;
-      //     color: #657b83; /* base00 */
-      //     font-size: 14px;
-      //     margin-bottom: 20px;
+        & > pre {
+          font-family: droid_sans_monoregular, mono, sans;
+          word-wrap: break-word;
+          margin: 0px;
+          padding: 10px;
+          color: #657b83; /* base00 */
+          font-size: 14px;
+          margin-bottom: 20px;
 
-      //     @import 'syntax-highlighting';
-      //   }
-      // }
+          @import 'syntax-highlighting';
+        }
+      }
     }
   }
 }
