@@ -14,12 +14,12 @@ class Vivus::StylesController < Vivus::ApplicationController
   def find_stylesheets
     sprockets = Rails.application.assets
 
-    css_paths = %w{application.css}
-    css_paths += Rails.application.config.assets.precompile.select { |item|
+    @css_paths = %w{application.css}
+    @css_paths += Rails.application.config.assets.precompile.select { |item|
       item.is_a?(String) && item[-4,4] == ".css"
     }
 
-    @stylesheets = css_paths.map{|file_path| Stylesheet.new(css: sprockets[file_path].body)}
+    @stylesheets = @css_paths.map{|file_path| Stylesheet.new(css: sprockets[file_path].body)}
   end
 
   def is_a_file? file
