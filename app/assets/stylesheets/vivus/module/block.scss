@@ -1,6 +1,6 @@
 #vivus-body {
-  margin-left: 360px;
-  padding: 40px 40px 40px 0;
+  margin-left: 250px;
+  padding: 30px;
 
   ul.vivus-sections {
     margin: 0;
@@ -20,24 +20,38 @@
       &.vivus-documentation {
         margin: 0 0 40px 0;
         font-size: 15px;
+        font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+
+        > h1 {
+          color: #C93312;
+        }
 
         code {
           font-size: 13px;
           color: #660000;
-          font-family: droid_sans_monoregular, mono, sans;
+          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
           @import 'syntax-highlighting';
         }
       }
 
       &.vivus-example {
+        @include clearfix;
         margin: 0 0 40px 0;
         font-size: 15px;
+
+        .vivus-title {
+          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+        }
       }
 
       &.vivus-code {
+        display: none;
+        .vivus-title {
+          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+        }
 
         & > pre {
-          font-family: droid_sans_monoregular, mono, sans;
+          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
           word-wrap: break-word;
           margin: 0px;
           padding: 10px;
