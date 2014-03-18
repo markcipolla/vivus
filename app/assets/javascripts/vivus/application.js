@@ -24,7 +24,7 @@ $(document).ready(function() {
     });
 
     $('.vivus-documentation h1').each(function(i, el) {
-        $('#vivus-navigation ul').append("<li><a href='#" + i + "'>" + $(el).text() + "</a></li>");
-        $(el).prepend("<a name='" + i + "'></a>");
+        $('#vivus-navigation ul').append("<li><a href='#" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
+        $(el).prepend("<a name='" + $(el).text().toLowerCase().replace(/ /g, '-') + "'></a>");
     })
 });
