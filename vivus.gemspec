@@ -18,6 +18,4 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.0.3"
   s.add_dependency "rdiscount"
-  s.add_dependency "pry"
-  s.add_dependency "better_errors"
 end
