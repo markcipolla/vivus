@@ -23,8 +23,8 @@ $(document).ready(function() {
         hljs.highlightBlock(el);
     });
 
-    $('.vivus-documentation h1').each(function(i, el) {
-        $('#vivus-navigation ul').append("<li><a href='#" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
+    $('.vivus-documentation').find('h1, h2, h3, h4, h5, h6').each(function(i, el) {
+        $('#vivus-navigation ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + "><a href='#" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
         $(el).prepend("<a name='" + $(el).text().toLowerCase().replace(/ /g, '-') + "'></a>");
     })
 });
