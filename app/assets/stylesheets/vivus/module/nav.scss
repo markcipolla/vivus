@@ -29,6 +29,10 @@
         line-height: 1.45;
         text-decoration: none;
         color: #D5D5D3;
+
+        &:hover {
+          color: #F3DF6C;
+        }
       }
 
       &.h1 {

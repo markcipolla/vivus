@@ -31,6 +31,15 @@
           color: #C93312;
         }
 
+        > h2 {
+          margin-top: 50px;
+        }
+
+        > ul, ol {
+          list-style-position: inside;
+          margin-bottom: 40px;
+        }
+
         code {
           font-size: 13px;
           color: #660000;
