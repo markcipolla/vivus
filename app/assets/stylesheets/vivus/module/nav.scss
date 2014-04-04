@@ -5,6 +5,8 @@
   height: 100%;
   margin: 0;
   background-color: #24281A;
+  z-index: 1000000;
+  overflow-y: scroll;
 
   @include respond-to("small") {
     display: none;
@@ -18,12 +20,13 @@
   font-family: "Open Sans", droid_sans_monoregular, mono, sans;
 
   ul {
-    padding: 40px;
+    padding: 0;
     margin: 0;
     color: #D5D5D3;
 
     li {
       margin-bottom: 5px;
+      list-style: none;
 
       a {
         line-height: 1.45;
@@ -38,8 +41,8 @@
       &.h1 {
         text-transform: uppercase;
         font-size: 15px;
-        list-style: none;
-        margin: 20px 0 5px -20px;
+
+        margin: 20px 0 5px 20px;
 
         a {
           color: #F3DF6C;
@@ -49,6 +52,7 @@
       &.h2 {
         font-size: 13px;
         color: #C3CED0;
+        margin: 0 0 5px 30px;
       }
 
       &.h3 {

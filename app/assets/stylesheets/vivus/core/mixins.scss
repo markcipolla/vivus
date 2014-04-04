@@ -12,31 +12,3 @@
     clear: both;
   }
 }
-
-
-@media only screen and (max-width: $small_max) {
-  $media: "small";
-}
-
-// Below 320px add some optimisations to the small layout
-//
-@media only screen and (max-width: $tiny_max) {
-  @import "layouts/mediaqueries/tiny";
-}
-
-// This is the default layout (applied at the top of this file), but we re-define it here
-// to ensure the $media variable is available and any special styles are added.
-//
-// This catches most tablets (ipads, nexus 7's, etc) in portrait and landscape modes,
-// plus most laptops and common screen sizes.
-//
-@media only screen and (min-width: $medium_min) and (max-width: $medium_max) {
-  $media: "medium";
-}
-
-// An extra wide layout for people with big screens (like the dev team). Adds some extra white
-// space, slightly larger fonts, wider grid, etc.
-//
-@media only screen and (min-width: $large_min) {
-  $media: "large";
-}
