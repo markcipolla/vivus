@@ -6,7 +6,7 @@ class Stylesheet
   def parse
     documentation = []
 
-    regex = /\/\* (Description|Example)(.*?) \*\//m
+    regex = /\/\* (Description|Example)(.*?)\*\//m
     matches = @css.to_enum(:scan, regex).map { Regexp.last_match }
 
     matches.each do |match|

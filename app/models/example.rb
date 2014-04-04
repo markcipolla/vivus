@@ -1,6 +1,7 @@
-require 'rdiscount'
+require 'erb'
 
 class Example
+
   def initialize (match)
     @block = match[2]
   end
@@ -10,7 +11,7 @@ class Example
   end
 
   def render
-   strip_block_marker(@block)
+    ERB.new(strip_block_marker(@block)).result
   end
 
   def code
