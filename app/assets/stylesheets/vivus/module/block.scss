@@ -1,6 +1,12 @@
 #vivus-body {
   margin-left: 250px;
+  max-width: 950px;
   padding: 30px;
+
+  @include respond-to("small") {
+    margin: 0;
+    padding: 20px;
+  }
 
   ul.vivus-sections {
     margin: 0;
@@ -8,7 +14,6 @@
 
     & > li {
       list-style: none;
-      border-bottom: 1px solid #eee;
       margin-bottom: 40px;
 
       &.vivus-source {
@@ -38,9 +43,12 @@
         @include clearfix;
         margin: 0 0 40px 0;
         font-size: 15px;
+        border-bottom: 1px solid #eee;
 
         .vivus-title {
           font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #eee;
         }
       }
 

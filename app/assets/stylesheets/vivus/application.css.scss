@@ -1,9 +1,12 @@
+@import "core/constants";
 @import "core/mixins";
+@import "core/mediaqueries";
 @import "core/typography";
 
 body#vivus {
   margin: 0;
   padding: 0;
 
-  @import "module/all";
+  @import 'module/nav';
+  @import 'module/block';
 }

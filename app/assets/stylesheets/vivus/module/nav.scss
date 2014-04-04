@@ -4,7 +4,11 @@
   width: 100%;
   height: 100%;
   margin: 0;
-  background-color: #FAEFD1;
+  background-color: #24281A;
+
+  @include respond-to("small") {
+    display: none;
+  }
 
   max-height: 100%;
   position: fixed;
@@ -16,15 +20,47 @@
   ul {
     padding: 40px;
     margin: 0;
+    color: #D5D5D3;
 
     li {
-      list-style: none;
+      margin-bottom: 5px;
 
       a {
-        color: black;
-        font-size: 15px;
         line-height: 1.45;
         text-decoration: none;
+        color: #D5D5D3;
+      }
+
+      &.h1 {
+        text-transform: uppercase;
+        font-size: 15px;
+        list-style: none;
+        margin: 20px 0 5px -20px;
+
+        a {
+          color: #F3DF6C;
+        }
+      }
+
+      &.h2 {
+        font-size: 13px;
+        color: #C3CED0;
+      }
+
+      &.h3 {
+
+      }
+
+      &.h4 {
+
+      }
+
+      &.h5 {
+
+      }
+
+      &.h6 {
+
       }
     }
   }
