@@ -23,9 +23,16 @@ $(document).ready(function() {
         hljs.highlightBlock(el);
     });
 
-    $('.vivus-documentation .vivus-source + h2').each(function(i, el) {
-
-        $('#vivus-navigation ul').append("<li><a href='#" + i + "'>" + $(el).text() + "</a></li>");
-        $(el).prepend("<a name='" + i + "'></a>");
+    $('.vivus-documentation').find('h1, h2, h3, h4, h5, h6').each(function(i, el) {
+        $('#vivus-navigation ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + "><a href='#" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
+        $(el).prepend("<a name='" + $(el).text().toLowerCase().replace(/ /g, '-') + "'></a>");
     })
+
+    $('.vivus-documentation *:contains("TODO:")').html(function(_, html) {
+       return html.split('TODO:').join("<span class='todo'>TODO:</span>");
+    });
+
+    $('.vivus-documentation *:contains("NOTE:")').html(function(_, html) {
+       return html.split('NOTE:').join("<span class='note'>NOTE:</span>");
+    });
 });

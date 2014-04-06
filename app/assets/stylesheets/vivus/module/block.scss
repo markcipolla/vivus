@@ -1,6 +1,12 @@
 #vivus-body {
-  margin-left: 360px;
-  padding: 40px 40px 40px 0;
+  margin-left: 250px;
+  max-width: 950px;
+  padding: 30px;
+
+  @include respond-to("small") {
+    margin: 0;
+    padding: 20px;
+  }
 
   ul.vivus-sections {
     margin: 0;
@@ -8,44 +14,66 @@
 
     & > li {
       list-style: none;
-      border-bottom: 1px solid #eee;
       margin-bottom: 40px;
 
-      .vivus-source,  .vivus-documentation, .vivus-title {
-        font-family: 'latin_modern_mono';
-      }
-
-      .vivus-source {
+      &.vivus-source {
         margin: 0 0 20px 0;
         font-size: 12px;
         font-style: italic;
       }
 
-      .vivus-documentation {
+      &.vivus-documentation {
         margin: 0 0 40px 0;
         font-size: 15px;
+        font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+
+        > h1 {
+          color: #C93312;
+        }
+
+        > h2 {
+          margin-top: 50px;
+        }
+
+        > ul, ol {
+          list-style-position: inside;
+          margin-bottom: 40px;
+        }
+
+        .todo {
+          color: #C93312;
+        }
 
         code {
           font-size: 13px;
           color: #660000;
-          font-family: droid_sans_monoregular, mono, sans;
+          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
           @import 'syntax-highlighting';
         }
       }
 
-      .vivus-example {
+      &.vivus-example {
+        @include clearfix;
         margin: 0 0 40px 0;
+        padding: 10px 0;
         font-size: 15px;
+        border-bottom: 1px solid #eee;
+
+        .vivus-title {
+          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #eee;
+        }
       }
 
-      .vivus-code {
+      &.vivus-code {
+        display: none;
         .vivus-title {
-          font-size: 15px;
-          text-transform: none;
+          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
         }
 
         & > pre {
-          font-family: droid_sans_monoregular, mono, sans;
+          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
           word-wrap: break-word;
           margin: 0px;
           padding: 10px;
