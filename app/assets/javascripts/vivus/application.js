@@ -27,4 +27,12 @@ $(document).ready(function() {
         $('#vivus-navigation ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + "><a href='#" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
         $(el).prepend("<a name='" + $(el).text().toLowerCase().replace(/ /g, '-') + "'></a>");
     })
+
+    $('.vivus-documentation *:contains("TODO:")').html(function(_, html) {
+       return html.split('TODO:').join("<span class='todo'>TODO:</span>");
+    });
+
+    $('.vivus-documentation *:contains("NOTE:")').html(function(_, html) {
+       return html.split('NOTE:').join("<span class='note'>NOTE:</span>");
+    });
 });

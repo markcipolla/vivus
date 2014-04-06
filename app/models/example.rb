@@ -1,7 +1,6 @@
 require 'erb'
 
 class Example
-
   def initialize (match)
     @block = match[2]
   end

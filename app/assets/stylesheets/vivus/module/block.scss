@@ -40,6 +40,10 @@
           margin-bottom: 40px;
         }
 
+        .todo {
+          color: #C93312;
+        }
+
         code {
           font-size: 13px;
           color: #660000;
@@ -51,6 +55,7 @@
       &.vivus-example {
         @include clearfix;
         margin: 0 0 40px 0;
+        padding: 10px 0;
         font-size: 15px;
         border-bottom: 1px solid #eee;
 
