@@ -35,4 +35,13 @@ $(document).ready(function() {
     $('.vivus-documentation *:contains("NOTE:")').html(function(_, html) {
        return html.split('NOTE:').join("<span class='note'>NOTE:</span>");
     });
+
+    $('a.vivus-tab').click(function(event) {
+      event.preventDefault();
+      var link = $(event.currentTarget);
+      var tabs = $(link).parent();
+      var blocks = $(tabs).parent().find('.vivus-block');
+      tabs.children("a").toggleClass("vivus-active");
+      blocks.toggleClass("vivus-block-opened");
+    });
 });
