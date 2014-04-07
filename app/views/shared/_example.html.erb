@@ -1,9 +1,14 @@
-<li class="vivus-example">
-  <h3 class="vivus-title">Example</h3>
-  <%= data.html_safe %>
-</li>
+<li class="vivus-example-section">
+  <nav class="vivus-tabbed">
+    <a href="#vivus-example" class="vivus-tab vivus-active">Example</a>
+    <a href="#vivus-code" class="vivus-tab">Code</a>
+  </nav>
 
-<li class="vivus-code">
-  <h3 class="vivus-title">Code</h3>
-  <pre><%= data %></pre>
+  <div class="vivus-example vivus-block vivus-block-opened">
+    <%= data.html_safe %>
+  </div>
+
+  <div class="vivus-code vivus-block ">
+    <pre><%= data %></pre>
+  </div>
 </li>
