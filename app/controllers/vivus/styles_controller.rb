@@ -3,15 +3,6 @@ class Vivus::StylesController < Vivus::ApplicationController
   before_filter :find_stylesheets
 
   def index
-  end
-
-  # def show
-  #   @stylesheet = Stylesheet.new(path: "#{params[:path]}.#{params[:format]}")
-  # end
-
-  private
-
-  def find_stylesheets
     sprockets = Rails.application.assets
 
     @css_paths = %w{application.css}
@@ -21,6 +12,8 @@ class Vivus::StylesController < Vivus::ApplicationController
 
     @stylesheets = @css_paths.map{|file_path| Stylesheet.new(css: sprockets[file_path].body)}
   end
+
+  private
 
   def is_a_file? file
     File.file?(file)
