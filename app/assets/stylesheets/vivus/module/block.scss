@@ -25,7 +25,8 @@
       &.vivus-documentation {
         margin: 0 0 40px 0;
         font-size: 15px;
-        font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
 
         > h1 {
           color: #C93312;
@@ -47,7 +48,8 @@
         code {
           font-size: 13px;
           color: #660000;
-          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+          font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+          font-weight: 300;
           @import 'syntax-highlighting';
         }
       }
@@ -60,7 +62,8 @@
         border-bottom: 1px solid #eee;
 
         .vivus-title {
-          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+          font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+          font-weight: 300;
           padding-bottom: 10px;
           border-bottom: 1px solid #eee;
         }
@@ -69,11 +72,13 @@
       &.vivus-code {
         display: none;
         .vivus-title {
-          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+          font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+          font-weight: 300;
         }
 
         & > pre {
-          font-family: "Open Sans", droid_sans_monoregular, mono, sans;
+          font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+          font-weight: 300;
           word-wrap: break-word;
           margin: 0px;
           padding: 10px;

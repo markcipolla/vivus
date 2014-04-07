@@ -1,7 +1,5 @@
 # Controller for dsiplaying the documentation for the styles
 class Vivus::StylesController < Vivus::ApplicationController
-  before_filter :find_stylesheets
-
   def index
     sprockets = Rails.application.assets
 
