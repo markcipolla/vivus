@@ -6,7 +6,7 @@
   margin: 0;
   background-color: #24281A;
   z-index: 1000000;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @include respond-to("small") {
     display: none;
@@ -51,7 +51,7 @@
       &.h2 {
         font-size: 13px;
         color: #C3CED0;
-        margin: 0 0 5px 30px;
+        margin: 0 10px 5px 30px;
       }
 
       &.h3 {
