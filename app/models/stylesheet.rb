@@ -22,7 +22,12 @@ class Stylesheet
         component = Component.new
 
         component.name = name if name
-        component.section = section if section
+        if section
+          component.section = section
+        else
+          component.section = name
+        end
+
         component.description = description if description
         component.example = example if example
         component.url = url if url
