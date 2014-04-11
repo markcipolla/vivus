@@ -9,14 +9,14 @@ class Stylesheet
   def parse
     documentation = []
 
-    styleguide_comment.each do |css|
-      css = css[1]
+    styleguide_comment.each do |comment|
+      comment = comment[1]
 
-      name = find_name_for(css)
-      section = find_section_for(css)
-      description = find_description_for(css)
-      example = find_example_for(css)
-      url = find_url_for(css)
+      name = find_name_for(comment)
+      section = find_section_for(comment)
+      description = find_description_for(comment)
+      example = find_example_for(comment)
+      url = find_url_for(comment)
 
       if name.present? || section.present? || description.present? || example.present? || url.present?
         component = Component.new
@@ -35,33 +35,33 @@ class Stylesheet
 
   private
 
-  def find_name_for css
+  def find_name_for comment
     regex = /\[Name\](.*?)$/m
-    result = scan_css(css, regex)
+    result = scan_comment(comment, regex)
     if result.present?
       result.first[1].strip
     end
   end
 
-  def find_section_for css
+  def find_section_for comment
     regex = /\[Section\](.*?)\n/m
-    result = scan_css(css, regex)
+    result = scan_comment(comment, regex)
     if result.present?
       result.first[1].strip
     end
   end
 
-  def find_description_for css
-    # scan_css(css, regex).first
+  def find_description_for comment
+    # scan_comment(comment, regex).first
   end
 
-  def find_example_for css
-    # scan_css(css, regex).first
+  def find_example_for comment
+    # scan_comment(comment, regex).first
   end
 
-  def find_url_for css
+  def find_url_for comment
     regex = /\[Url\](.*?)\n/m
-    result = scan_css(css, regex)
+    result = scan_comment(comment, regex)
     if result.present?
       result.first[1].strip
     end
@@ -69,10 +69,10 @@ class Stylesheet
 
   def styleguide_comment
     regex = /\/\*(.*?)\*\//m
-    scan_css(@css, regex)
+    scan_comment(@css, regex)
   end
 
-  def scan_css text, regex
+  def scan_comment text, regex
     text.to_enum(:scan, regex).map { Regexp.last_match }
   end
 end

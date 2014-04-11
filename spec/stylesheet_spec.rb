@@ -9,10 +9,9 @@ describe Stylesheet do
 [Section] Widgets and Doodads
 [Description]
 
-## Description of Widgets and Doodads
+## This is the first component
 
-We have a bunch of widgets and doodads. This widget
-includes the widgety goodness of widgets
+This is the description of the first component
 
 ### Ideas
 
@@ -25,10 +24,50 @@ TODO: Rewrite widget to be more doodad-ish
 [Example]
 [Url] http://www.vivus.io
 */
+
+.css_for_the_widget {
+  display: none;
+}
+
+/*
+[Name] CSS Doodad
+[Section] Widgets and Doodads
+[Description]
+
+## This is the second component
+
+This is the description of the second component
+
+TODO: Rewrite widget to be more widget-ish
+
+[Example]
+[Url] http://www.vivus.io
+*/
+
+.css_for_the_doodad {
+  display: none;
+}
+
+/* Not a styleguide comment */
+
+.some_other_css {
+  display: none;
+}
 eos
     end
 
-    it "should return a list of Component objects" do
+    it "should return an array" do
+      Stylesheet.new(css: @css).parse.should be_kind_of(Array)
+    end
+
+    it "should return an array of Components" do
+      stylesheet = Stylesheet.new(css: @css).parse
+
+      stylesheet[0].should be_kind_of(Component)
+      stylesheet[1].should be_kind_of(Component)
+    end
+
+    it "should return an array of Components with data" do
       stylesheet = Stylesheet.new(css: @css).parse
 
       first_component = stylesheet.first
