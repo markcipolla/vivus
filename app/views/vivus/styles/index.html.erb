@@ -7,6 +7,7 @@
 <div id="vivus-body">
   <ul class="vivus-sections">
     <% @stylesheets.each do |stylesheet| %>
+
       <% stylesheet.parse.each do |title, components| %>
         <li class="vivus-section">
           <h1 class="vivus-section-title"><%= title %></h1>

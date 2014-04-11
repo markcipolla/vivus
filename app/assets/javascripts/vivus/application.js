@@ -25,9 +25,14 @@ $(document).ready(function() {
     })
 
     $('h2.vivus-name').each(function(i, el) {
-      var section_title = $(el).parents(".vivus-section").children(".vivus-section-title").text().toLowerCase().replace(/ /g, '-');
+      var section = $(el).parents(".vivus-section");
+      var section_title = section.children("h1.vivus-section-title").text().toLowerCase().replace(/ /g, '-');
 
-      $('#vivus-navigation ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + "><a href='#" + section_title + "|" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
+      var anchor = "<a href='#" + section_title + "|" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a>"
+
+      var navParent =  $('#vivus-navigation ul').find("a[href='#" + section_title + "']").parent();
+
+      $("<li class=" + $(el).prop("tagName").toLowerCase() + ">" + anchor + "</li>").insertAfter(navParent);
       $(el).prepend("<a name='" + section_title + "|" + $(el).text().toLowerCase().replace(/ /g, '-') +"'></a>");
     })
 

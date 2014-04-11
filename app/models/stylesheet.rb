@@ -30,7 +30,7 @@ class Stylesheet
         documentation << component
       end
     end
-    documentation = sort_by_section_and_name(documentation)
+    # documentation = sort_by_section_and_name(documentation)
     group_by_section(documentation)
   end
 
@@ -43,11 +43,13 @@ class Stylesheet
   end
 
   def sort_by_section_and_name documentation
-    documentation.sort! { |a,b| a.section.downcase <=> b.section.downcase }.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+    documentation.
+      sort!{|a,b| a.section.downcase <=> b.section.downcase }.
+      sort!{|a,b| a.name.downcase <=> b.name.downcase }
   end
 
   def find_name_for comment
-    regex = /\[Name\](.*?)$/m
+    regex = /\[Name\](.*?)(\[Section\]|\[Description\]|\[Example\]|\[Url\]|\*\/|\z)/m
     result = scan_comment(comment, regex)
     if result.present?
       result.first[1].strip
@@ -55,7 +57,7 @@ class Stylesheet
   end
 
   def find_section_for comment
-    regex = /\[Section\](.*?)\n/m
+    regex = /\[Section\](.*?)(\[Name\]|\[Description\]|\[Example\]|\[Url\]|\*\/|\z)/m
     result = scan_comment(comment, regex)
     if result.present?
       result.first[1].strip
@@ -63,15 +65,23 @@ class Stylesheet
   end
 
   def find_description_for comment
-    # scan_comment(comment, regex).first
+    regex = /\[Description\](.*?)(\[Name\]|\[Section\]|\[Example\]|\[Url\]|\*\/|\z)/m
+    result = scan_comment(comment, regex)
+    if result.present?
+      result.first[1].strip
+    end
   end
 
   def find_example_for comment
-    # scan_comment(comment, regex).first
+    regex = /\[Example\](.*?)(\[Name\]|\[Section\]|\[Description\]|\[Url\]|\*\/|\z)/m
+    result = scan_comment(comment, regex)
+    if result.present?
+      result.first[1].strip
+    end
   end
 
   def find_url_for comment
-    regex = /\[Url\](.*?)\n/m
+    regex = /\[Url\](.*?)(\[Name\]|\[Section\]|\[Description\]|\[Example\]|\*\/|\z)/m
     result = scan_comment(comment, regex)
     if result.present?
       result.first[1].strip
