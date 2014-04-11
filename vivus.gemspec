@@ -13,9 +13,10 @@ Gem::Specification.new do |s|
   s.summary     = "Generates a styleguide for your SASS/SCSS"
   s.description = "Styleguides can be a pain to keep as a living documentation for your CSS. By analysing the comments in your SASS files, and by adding markdown to your stylesheets, you can generate a living, breathing documentation styleguide that has examples of how the CSS is used."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.0.3"
   s.add_dependency "rdiscount"
+  s.add_development_dependency "rspec"
 end
