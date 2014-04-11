@@ -7,5 +7,6 @@ body#vivus {
   padding: 0;
 
   @import 'module/nav';
-  @import 'module/block';
+  @import 'module/section';
+  @import 'module/component';
 }

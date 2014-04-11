@@ -1,11 +1,11 @@
-<li class='vivus-documentation'>
-  <h2 class="vivus-name"><%= component.name %></h2>
-  <%= component.display_description %>
-</li>
+<li class='vivus-component'>
 
-<% if component.example.present? %>
-  <li class="vivus-example-section">
+  <div class="vivus-documentation">
+    <h2 class="vivus-name"><%= component.name %></h2>
+    <%= component.display_description %>
+  </div>
 
+  <% if component.example.present? %>
     <nav class="vivus-tabbed">
       <a href="#vivus-example" class="vivus-tab vivus-active">Example</a>
       <a href="#vivus-code" class="vivus-tab">Code</a>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="vivus-code vivus-block ">
-      <pre><%#= data %></pre>
+      <pre><%= component.example %></pre>
     </div>
-  </li>
-<% end %>
+  <% end %>
+</li>

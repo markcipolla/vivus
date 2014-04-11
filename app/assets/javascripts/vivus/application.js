@@ -15,17 +15,20 @@
 //= require_tree .
 
 $(document).ready(function() {
-    $('pre').each(function(i, el) {
-        hljs.highlightBlock(el);
+    $('pre, code').each(function(i, el) {
+      hljs.highlightBlock(el);
     });
 
-    $('code').each(function(i, el) {
-        hljs.highlightBlock(el);
-    });
+    $('h1.vivus-section-title').each(function(i, el) {
+      $('#vivus-navigation ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + "><a href='#" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
+      $(el).prepend("<a name='" + $(el).text().toLowerCase().replace(/ /g, '-') + "'></a>");
+    })
 
-    $('h1.vivus-section, h2.vivus-name').each(function(i, el) {
-        $('#vivus-navigation ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + "><a href='#" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
-        $(el).prepend("<a name='" + $(el).text().toLowerCase().replace(/ /g, '-') + "'></a>");
+    $('h2.vivus-name').each(function(i, el) {
+      var section_title = $(el).parents(".vivus-section").children(".vivus-section-title").text().toLowerCase().replace(/ /g, '-');
+
+      $('#vivus-navigation ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + "><a href='#" + section_title + "|" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
+      $(el).prepend("<a name='" + section_title + "|" + $(el).text().toLowerCase().replace(/ /g, '-') +"'></a>");
     })
 
     $('.vivus-documentation *:contains("TODO:")').html(function(_, html) {
