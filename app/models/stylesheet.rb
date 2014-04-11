@@ -30,10 +30,21 @@ class Stylesheet
         documentation << component
       end
     end
-    documentation
+    documentation = sort_by_section_and_name(documentation)
+    group_by_section(documentation)
   end
 
   private
+
+  def group_by_section documentation
+    documentation.group_by(&:section).each do |key, group|
+      group.sort_by(&:name).each{|item| puts item}
+    end
+  end
+
+  def sort_by_section_and_name documentation
+    documentation.sort! { |a,b| a.section.downcase <=> b.section.downcase }.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+  end
 
   def find_name_for comment
     regex = /\[Name\](.*?)$/m
