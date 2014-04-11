@@ -20,8 +20,11 @@ $(document).ready(function() {
     });
 
     $('h1.vivus-section-title').each(function(i, el) {
-      $('#vivus-navigation ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + "><a href='#" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a></li>");
-      $(el).prepend("<a name='" + $(el).text().toLowerCase().replace(/ /g, '-') + "'></a>");
+      var text = $(el).text().toLowerCase();
+      var link = text.replace(/ /g, '-');
+      var anchor = "<a href='#" + link + "'>" + $(el).text() + "</a>";
+      $('#vivus-navigation ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + ">" + anchor + "<ul></ul></li>");
+      $(el).prepend("<a name='" + link + "'></a>");
     })
 
     $('h2.vivus-name').each(function(i, el) {
@@ -32,7 +35,7 @@ $(document).ready(function() {
 
       var navParent =  $('#vivus-navigation ul').find("a[href='#" + section_title + "']").parent();
 
-      $("<li class=" + $(el).prop("tagName").toLowerCase() + ">" + anchor + "</li>").insertAfter(navParent);
+      $(navParent).find("ul").append("<li class=" + $(el).prop("tagName").toLowerCase() + ">" + anchor + "</li>");
       $(el).prepend("<a name='" + section_title + "|" + $(el).text().toLowerCase().replace(/ /g, '-') +"'></a>");
     })
 
