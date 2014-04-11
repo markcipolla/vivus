@@ -32,44 +32,38 @@
       a {
         line-height: 1.45;
         text-decoration: none;
-        color: #D5D5D3;
-
-        &:hover {
-          color: #F3DF6C;
-        }
       }
 
       &.h1 {
         font-size: 15px;
 
-        margin: 20px 0 5px 20px;
+        margin: 20px 0 10px 20px;
 
         a {
           color: #F3DF6C;
         }
+
+        ul {
+          margin-top: 10px;
+        }
+
+
+        .h2 {
+          font-size: 13px;
+          color: #C3CED0;
+          margin: 0 10px 5px 10px;
+
+          a {
+            color: #D5D5D3;
+
+            &:hover {
+              color: #F3DF6C;
+            }
+          }
+        }
       }
 
-      &.h2 {
-        font-size: 13px;
-        color: #C3CED0;
-        margin: 0 10px 5px 30px;
-      }
 
-      &.h3 {
-
-      }
-
-      &.h4 {
-
-      }
-
-      &.h5 {
-
-      }
-
-      &.h6 {
-
-      }
     }
   }
 }

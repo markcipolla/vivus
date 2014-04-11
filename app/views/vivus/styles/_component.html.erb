@@ -1,0 +1,22 @@
+<li class='vivus-component'>
+
+  <div class="vivus-documentation">
+    <h2 class="vivus-name"><%= component.name %></h2>
+    <%= component.display_description %>
+  </div>
+
+  <% if component.example.present? %>
+    <nav class="vivus-tabbed">
+      <a href="#vivus-example" class="vivus-tab vivus-active">Example</a>
+      <a href="#vivus-code" class="vivus-tab">Code</a>
+    </nav>
+
+    <div class="vivus-example vivus-block vivus-block-opened">
+      <%= component.display_example.html_safe %>
+    </div>
+
+    <div class="vivus-code vivus-block ">
+      <pre><%= component.display_example %></pre>
+    </div>
+  <% end %>
+</li>

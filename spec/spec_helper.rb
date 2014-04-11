@@ -6,8 +6,7 @@ require 'rdiscount'
 
 require_relative "../lib/vivus"
 require_relative '../app/models/stylesheet'
-require_relative '../app/models/description'
-require_relative '../app/models/example'
+require_relative '../app/models/component'
 
 ENV["RAILS_ENV"] ||= 'test'
 
