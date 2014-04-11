@@ -9,40 +9,70 @@ class Stylesheet
   def parse
     documentation = []
 
-    fields = ['Name', 'Section', 'Description', 'Example', 'Url']
-    matches = []
+    styleguide_comment.each do |css|
+      css = css[1]
 
-    fields.each do |term|
-      regex = /(- #{term})(.*?)(#{fields.collect{|field| "- #{field}"}.join("|")}|\*\/)/m
+      name = find_name_for(css)
+      section = find_section_for(css)
+      description = find_description_for(css)
+      example = find_example_for(css)
+      url = find_url_for(css)
 
-      matches << @css.to_enum(:scan, regex).map { Regexp.last_match }
-    end
+      if name.present? || section.present? || description.present? || example.present? || url.present?
+        component = Component.new
 
-    unless matches.reject(&:empty?).present?
-      matches.reject(&:empty?).each do |match|
-        binding.pry
-        case match[1]
-        when "- Description"
-           documentation << Description.new(match)
-        when "- Example"
-           documentation << Example.new(match)
-        end
+        component.name = name if name
+        component.section = section if section
+        component.description = description if description
+        component.example = example if example
+        component.url = url if url
+
+        documentation << component
       end
     end
-
     documentation
   end
 
-  # def parse
-  #   documentation = []
+  private
 
-  #   regex = /\/\* Styleguide(.*?)\*\//m
-  #   matches = @css.to_enum(:scan, regex).map { Regexp.last_match }
+  def find_name_for css
+    regex = /\[Name\](.*?)$/m
+    result = scan_css(css, regex)
+    if result.present?
+      result.first[1].strip
+    end
+  end
 
-  #   matches.each do |match|
-  #     binding.pry
-  #   end
+  def find_section_for css
+    regex = /\[Section\](.*?)\n/m
+    result = scan_css(css, regex)
+    if result.present?
+      result.first[1].strip
+    end
+  end
 
-  #   documentation
-  # end
+  def find_description_for css
+    # scan_css(css, regex).first
+  end
+
+  def find_example_for css
+    # scan_css(css, regex).first
+  end
+
+  def find_url_for css
+    regex = /\[Url\](.*?)\n/m
+    result = scan_css(css, regex)
+    if result.present?
+      result.first[1].strip
+    end
+  end
+
+  def styleguide_comment
+    regex = /\/\*(.*?)\*\//m
+    scan_css(@css, regex)
+  end
+
+  def scan_css text, regex
+    text.to_enum(:scan, regex).map { Regexp.last_match }
+  end
 end
