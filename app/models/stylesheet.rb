@@ -43,7 +43,7 @@ class Stylesheet
 
   def group_by_section documentation
     documentation.sort_by(&:section).group_by(&:section).each do |key, group|
-      group.sort!{|a,b| a.name.downcase <=> b.name.downcase }.each{|item| puts item}
+      group.sort!{|a,b| a.name.downcase <=> b.name.downcase }
     end
   end
 
