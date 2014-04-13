@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vivus (1.0.0)
+    vivus (1.0.1)
       rails (~> 4.0.3)
       rdiscount
 
