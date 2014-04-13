@@ -43,7 +43,7 @@ This is optional, but really... why styleguide code you don't want
 to document?
 
 - You can use three backticks (`) to indicate a code block
-- ```&lt;div class="example"&gt;&lt;/div&gt;```
+- ```<div class="example"></div>```
 - Code blocks will be syntax highlighted
 
 When you've documented it nicely, use the Example markers to
