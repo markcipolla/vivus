@@ -1,4 +1,4 @@
-# Vivus Styleguide <img src="https://travis-ci.org/markcipolla/vivus.svg?branch=master" />&nbsp;[<img src="https://badge.fury.io/rb/vivus.svg" alt="Gem Version" height="18">](http://badge.fury.io/rb/vivus)
+# Vivus Styleguide [<img src="https://travis-ci.org/markcipolla/vivus.svg?branch=master" />](https://travis-ci.org/markcipolla/vivus)&nbsp;[<img src="https://badge.fury.io/rb/vivus.svg" alt="Gem Version" height="18">](http://badge.fury.io/rb/vivus)
 
 ## Concept
 
