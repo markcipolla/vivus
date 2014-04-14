@@ -58,6 +58,13 @@ need be.
   <p>This is optional, but kinda the point</p>
   <a href="#" class="button">Some text</a>
 </div>
+
+<% 5.times do %>
+  <div class="example">
+    <p>This will be outputted five times!</p>
+    <p>ERB in your CSS! Craziness!</p>
+  </div>
+<% end %>
 [Url] A web address pointing to further documentation / example (optional)
 */
 ```
