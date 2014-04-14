@@ -2,12 +2,6 @@
   $media: "small";
 }
 
-// Below 320px add some optimisations to the small layout
-//
-@media only screen and (max-width: $tiny_max) {
-  @import "layouts/mediaqueries/tiny";
-}
-
 // This is the default layout (applied at the top of this file), but we re-define it here
 // to ensure the $media variable is available and any special styles are added.
 //
