@@ -31,7 +31,7 @@ Then hit up ```localhost:3000/styleguide```
 
 To document your CSS, use this as a template
 ```
-/*
+/**
 [Name] The name of the component (e.g. Success Buttons)
 [Section] A section that groups components together (e.g. Buttons)
 [Description]
@@ -66,7 +66,7 @@ need be.
   </div>
 <% end %>
 [Url] A web address pointing to further documentation / example (optional)
-*/
+**/
 ```
 
 The only required ones are ```[Name]``` and ```[Section]```. 
