@@ -88,7 +88,7 @@ class Stylesheet
   end
 
   def styleguide_comment
-    regex = /\/\*(.*?)\*\//m
+    regex = /\/\*\*(.*?)\*\*\//m
     scan_comment(@css, regex)
   end
 
