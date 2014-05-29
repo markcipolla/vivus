@@ -6,28 +6,21 @@
 </div>
 <div id="vivus-body">
   <ul class="vivus-sections">
-    <% @stylesheets.each do |stylesheet| %>
-
-      <% stylesheet.parse.each do |title, components| %>
-        <li class="vivus-section">
-          <h1 class="vivus-section-title"><%= title %></h1>
-          <ul class="vivus-components">
-            <%= render partial: "component", collection: components %>
-          </ul>
-        </li>
-      <% end %>
+    <% @stylesheets.each do |title, components| %>
+      <li class="vivus-section">
+        <h1 class="vivus-section-title"><%= title %></h1>
+        <ul class="vivus-components">
+          <%= render partial: "component", collection: components %>
+        </ul>
+      </li>
     <% end %>
 
-    <% if @stylesheets.collect{|s| s.parse}.flatten.blank? %>
-      <li>
-        <h2>Let's begin!</h2>
-        <p>Above each block of code in your CSS, start documenting your styleguide by writing co
-        <p>The important bits are:</p>
-        <ul>
-          <li><code>// Description</code> indicates this is a Vivus comment, and will be parsed accord
-          <li><code>// Example</code> marks the start and end of the HTML example code that
-        </ul>
-        <br />
+    <% if @stylesheets.flatten.blank? %>
+      <li class="vivus-section">
+        <h2></h2>
+        <h1 class="vivus-section-title">Let's begin!</h1>
+        <p>Above each block of code in your CSS, start documenting your styleguide by writing comments.
+        <p>Use the below example as a starting point.</p>
         <pre>
 /*
 [Name] The name of the component (e.g. Success Buttons)

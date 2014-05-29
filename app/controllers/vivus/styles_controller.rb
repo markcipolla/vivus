@@ -8,7 +8,11 @@ class Vivus::StylesController < Vivus::ApplicationController
       item.is_a?(String) && item[-4,4] == ".css"
     }
 
-    @stylesheets = @css_paths.map{|file_path| Stylesheet.new(css: sprockets[file_path].body)}
+    @stylesheets = @css_paths
+      .map{|file_path| Stylesheet.new(css: sprockets[file_path].body)}
+      .map{|stylesheet| stylesheet.parse}
+      .reject{|stylesheet| stylesheet.empty?}
+      .inject({}){ |a,b| a.merge(b) }
   end
 
   private

@@ -35,7 +35,6 @@ class Stylesheet
         documentation << component
       end
     end
-
     group_by_section(documentation)
   end
 
