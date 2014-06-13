@@ -98,5 +98,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rspec (>= 2.14, < 3)
+  rspec (>= 2.14)
   vivus!
