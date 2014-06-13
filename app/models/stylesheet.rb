@@ -1,8 +1,6 @@
-require 'yaml'
-
-
 class Stylesheet
   def initialize(options)
+    @file_path = options[:file_path]
     @css = options[:css]
   end
 
@@ -20,6 +18,8 @@ class Stylesheet
 
       if name.present? || section.present? || description.present? || example.present? || url.present?
         component = Component.new
+
+        component.source = @file_path
 
         component.name = name if name
         if section

@@ -1,7 +1,7 @@
 require 'rdiscount'
 
 class Component
-  attr_accessor :name, :section, :description, :example, :url
+  attr_accessor :name, :section, :description, :example, :url, :source
 
   def display_description
     RDiscount.new(self.description, :smart, :filter_html).to_html.html_safe if self.description
