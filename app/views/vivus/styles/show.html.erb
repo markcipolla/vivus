@@ -1,8 +1,13 @@
 <%= render partial: "nav" %>
-
-
-<% @stylesheet.parse.each do |block| %>
-  <%= block.comments.html_safe %>
-
-  <pre><%= block.html.html_safe %></pre>
-<% end %>
+<div id="vivus-body">
+  <ul class="vivus-sections">
+    <% @stylesheets.select{ |section| section.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-') == params[:section]}.each do |title, components| %>
+      <li class="vivus-section">
+        <h1 class="vivus-section-title"><%= title %></h1>
+        <ul class="vivus-components">
+          <%= render partial: "component", collection: components %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</div>

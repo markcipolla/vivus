@@ -1,7 +1,23 @@
 <nav id="vivus-navigation">
   <ul>
-    <% @stylesheets.each do |stylesheet| %>
-      <li><%= link_to stylesheet.display_path, "/vivus/#{stylesheet.path}" %></li>
+    <% @stylesheets.each do |group| %>
+      <% section = group[0] %>
+      <% section_slug = section.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-') %>
+      <% chunks = group[1] %>
+
+      <li class="h1 <%= "active" if section.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-') == params[:section] %>">
+        <%= link_to section, vivus_section_path(section_slug) %>
+
+        <% if chunks.present? %>
+          <ul>
+            <% chunks.each do |chunk| %>
+              <li class="h2">
+                <%= link_to chunk.name, vivus_section_path(section_slug, anchor: chunk.slug) %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </nav>

@@ -10,4 +10,8 @@ class Component
   def display_example
     ERB.new(example).result if self.example
   end
+
+  def slug
+    self.name.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-')
+  end
 end

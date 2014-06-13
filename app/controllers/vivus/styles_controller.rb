@@ -1,6 +1,16 @@
 # Controller for dsiplaying the documentation for the styles
 class Vivus::StylesController < Vivus::ApplicationController
   def index
+    gather_stylesheets
+  end
+
+  def show
+    gather_stylesheets
+  end
+
+  private
+
+  def gather_stylesheets
     sprockets = Rails.application.assets
 
     @css_paths = %w{application.css}
@@ -12,10 +22,15 @@ class Vivus::StylesController < Vivus::ApplicationController
       .map{|file_path| Stylesheet.new(css: sprockets[file_path].body)}
       .map{|stylesheet| stylesheet.parse}
       .reject{|stylesheet| stylesheet.empty?}
-      .inject({}){ |a,b| a.merge(b) }
-  end
+      .inject({}){ | accum, data |
+        data.each do |section, components|
+          accum[section] ||= []
+          accum[section] += components
+        end
 
-  private
+        accum
+      }
+    end
 
   def is_a_file? file
     File.file?(file)

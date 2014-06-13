@@ -8,24 +8,8 @@ $(document).ready(function() {
       hljs.highlightBlock(el);
     });
 
-    $('h1.vivus-section-title').each(function(i, el) {
-      var text = $(el).text().toLowerCase();
-      var link = text.replace(/ /g, '-');
-      var anchor = "<a href='#" + link + "'>" + $(el).text() + "</a>";
-      $('#vivus-navigation > ul').append("<li class=" + $(el).prop("tagName").toLowerCase() + ">" + anchor + "<ul></ul></li>");
-      $(el).prepend("<a name='" + link + "'></a>");
-    })
-
     $('h2.vivus-name').each(function(i, el) {
-      var section = $(el).parents(".vivus-section");
-      var section_title = section.children("h1.vivus-section-title").text().toLowerCase().replace(/ /g, '-');
-
-      var anchor = "<a href='#" + section_title + "|" + $(el).text().toLowerCase().replace(/ /g, '-') + "'>" + $(el).text() + "</a>"
-
-      var navParent =  $('#vivus-navigation ul').find("a[href='#" + section_title + "']").parent();
-
-      $(navParent).find("ul").append("<li class=" + $(el).prop("tagName").toLowerCase() + ">" + anchor + "</li>");
-      $(el).prepend("<a name='" + section_title + "|" + $(el).text().toLowerCase().replace(/ /g, '-') +"'></a>");
+      $(el).before("<a name='" + $(el).text().toLowerCase().replace(/ /g, '-') +"'></a>");
     })
 
     $('.vivus-documentation *:contains("TODO:")').html(function(_, html) {

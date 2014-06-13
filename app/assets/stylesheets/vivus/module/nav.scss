@@ -39,6 +39,12 @@
 
         margin: 20px 0 10px 20px;
 
+        &.active {
+          margin-left: 0;
+          padding-left: 15px;
+          border-left: 5px solid #F3DF6C;
+        }
+
         a {
           color: #F3DF6C;
         }
