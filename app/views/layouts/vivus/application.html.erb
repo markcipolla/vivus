@@ -4,7 +4,15 @@
   <title>Vivus</title>
   <%= stylesheet_link_tag    "vivus/application", :media => "all" %>
   <%= javascript_include_tag "vivus/application" %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+
+  <% @css_paths.each do |path| %>
+    <% if path.match(/print/).nil? %>
+      <%= stylesheet_link_tag path, :media => "all" %>
+    <% else %>
+      <%= stylesheet_link_tag path, :media => "print" %>
+    <% end %>
+  <% end %>
+
   <%= csrf_meta_tags %>
 </head>
 <body id="vivus">

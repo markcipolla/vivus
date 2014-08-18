@@ -1,15 +1,13 @@
-require 'yaml'
-
-
 class Stylesheet
   def initialize(options)
+    @file_path = options[:file_path]
     @css = options[:css]
   end
 
   def parse
     documentation = []
 
-    styleguide_comment.each do |comment|
+    styleguide_comments.each do |comment|
       comment = comment[1]
 
       name = find_name_for(comment)
@@ -20,6 +18,8 @@ class Stylesheet
 
       if name.present? || section.present? || description.present? || example.present? || url.present?
         component = Component.new
+
+        component.source = @file_path
 
         component.name = name if name
         if section
@@ -86,7 +86,7 @@ class Stylesheet
     end
   end
 
-  def styleguide_comment
+  def styleguide_comments
     regex = /\/\*\*(.*?)\*\*\//m
     scan_comment(@css, regex)
   end

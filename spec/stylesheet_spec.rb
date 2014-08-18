@@ -4,7 +4,7 @@ describe Stylesheet do
   describe "#parse" do
     before do
       @css = <<-eos
-/*
+/**
 [Name] CSS Widget
 [Section] Widgets and Doodads
 [Description]
@@ -23,13 +23,13 @@ TODO: Rewrite widget to be more doodad-ish
 
 [Example]
 [Url] http://www.widgets.io
-*/
+**/
 
 .css_for_the_widget {
   display: none;
 }
 
-/*
+/**
 [Name] CSS Doodad
 [Section] Widgets and Doodads
 [Description]
@@ -42,7 +42,7 @@ TODO: Rewrite widget to be more widget-ish
 
 [Example]
 [Url] http://www.doodads.io
-*/
+**/
 
 .css_for_the_doodad {
   display: none;
@@ -54,7 +54,7 @@ TODO: Rewrite widget to be more widget-ish
   display: none;
 }
 
-/*
+/**
 [Name] CSS Foobar
 [Section] Foobars
 [Description]
@@ -67,7 +67,7 @@ TODO: Rewrite to be less, well... you get the idea.
 
 [Example]
 [Url] http://www.foobars.io
-*/
+**/
 eos
     end
 

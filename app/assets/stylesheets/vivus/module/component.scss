@@ -50,6 +50,11 @@ li.vivus-component {
   }
 
   .vivus-code {
+    > em.vivus-source {
+      padding: 10px;
+      color: #bbb;
+    }
+
     > pre {
       font-family: monospace;
       word-wrap: break-word;

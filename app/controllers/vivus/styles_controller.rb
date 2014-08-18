@@ -11,26 +11,18 @@ class Vivus::StylesController < Vivus::ApplicationController
   private
 
   def gather_stylesheets
+
     sprockets = Rails.application.assets
 
     @css_paths = %w{application.css}
-    @css_paths += Rails.application.config.assets.precompile.select { |item|
+    @css_paths += Rails.application.config.assets.precompile.select do |item|
       item.is_a?(String) && item[-4,4] == ".css"
-    }
-
-    @stylesheets = @css_paths
-      .map{|file_path| Stylesheet.new(css: sprockets[file_path].body)}
-      .map{|stylesheet| stylesheet.parse}
-      .reject{|stylesheet| stylesheet.empty?}
-      .inject({}){ | accum, data |
-        data.each do |section, components|
-          accum[section] ||= []
-          accum[section] += components
-        end
-
-        accum
-      }
     end
+    stylesheets = @css_paths.map{|file_path| Stylesheet.new(file_path: file_path, css: sprockets[file_path].body)}
+
+    styleguide = Styleguide.new(stylesheets: stylesheets)
+    @stylesheets = styleguide.generate
+  end
 
   def is_a_file? file
     File.file?(file)

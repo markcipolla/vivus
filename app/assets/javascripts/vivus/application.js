@@ -9,7 +9,7 @@ $(document).ready(function() {
     });
 
     $('h2.vivus-name').each(function(i, el) {
-      $(el).before("<a name='" + $(el).text().toLowerCase().replace(/ /g, '-') +"'></a>");
+      $(el).before("<a name='" + $(el).text().toLowerCase().replace(',', '').replace(/ /g, '-') +"'></a>");
     })
 
     $('.vivus-documentation *:contains("TODO:")').html(function(_, html) {
