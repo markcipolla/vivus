@@ -7,7 +7,7 @@ class Stylesheet
   def parse
     documentation = []
 
-    styleguide_comment.each do |comment|
+    styleguide_comments.each do |comment|
       comment = comment[1]
 
       name = find_name_for(comment)
@@ -86,7 +86,7 @@ class Stylesheet
     end
   end
 
-  def styleguide_comment
+  def styleguide_comments
     regex = /\/\*\*(.*?)\*\*\//m
     scan_comment(@css, regex)
   end

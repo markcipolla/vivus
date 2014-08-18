@@ -43,6 +43,12 @@
           margin-left: 0;
           padding-left: 15px;
           border-left: 5px solid #F3DF6C;
+
+          ul {
+            li {
+              display: block;
+            }
+          }
         }
 
         a {
@@ -51,8 +57,11 @@
 
         ul {
           margin-top: 10px;
-        }
 
+          li {
+            display: none;
+          }
+        }
 
         .h2 {
           font-size: 13px;
