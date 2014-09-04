@@ -10,7 +10,7 @@
 
         <% if components.present? %>
           <ul>
-            <% components.each do |component| %>
+            <% components.uniq{|c| c.name}.each do |component| %>
               <li class="h2">
                 <%= link_to component.name, vivus_section_path(section_slug, anchor: component.slug) %>
               </li>
