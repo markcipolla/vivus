@@ -91,7 +91,7 @@ eos
       stylesheet["Foobars"].last.name.should == "CSS Foobar"
     end
 
-    it "should returna hash grouped by section, sorted by nam, with data" do
+    it "should returna hash grouped by section, sorted by name, with data" do
       stylesheet = Stylesheet.new(css: @css).parse
       first_component = stylesheet["Widgets and Doodads"].first
 
