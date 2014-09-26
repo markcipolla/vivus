@@ -38,10 +38,10 @@ li.vivus-component {
     @include clearfix;
     margin: 0 0 40px 0;
     padding: 10px 0;
-    font-size: 15px;
     border-bottom: 1px solid #eee;
 
     .vivus-title {
+      font-size: 15px;
       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
       font-weight: 300;
       padding-bottom: 10px;
