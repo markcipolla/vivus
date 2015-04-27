@@ -18,7 +18,7 @@ class Vivus::StylesController < Vivus::ApplicationController
     @css_paths += Rails.application.config.assets.precompile.select do |item|
       item.is_a?(String) && item[-4,4] == ".css"
     end
-    stylesheets = @css_paths.map{|file_path| Stylesheet.new(file_path: file_path, css: sprockets[file_path].body)}
+    stylesheets = @css_paths.map{|file_path| Stylesheet.new(file_path: file_path, css: sprockets[file_path].source)}
 
     styleguide = Styleguide.new(stylesheets: stylesheets)
     @stylesheets = styleguide.generate
